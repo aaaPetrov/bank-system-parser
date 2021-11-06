@@ -1,0 +1,91 @@
+<bankdata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="schema.xsd">
+    <bank>
+        <name>Future's</name>
+        <address>
+            <city>London</city>
+            <street>Piccadilly</street>
+            <houseNumber>7</houseNumber>
+        </address>
+        <dateFounded>2000-10-06T23:55:00</dateFounded>
+        <currency currencyType="USD">50000.0</currency>
+        <currency currencyType="EUR">100000.0</currency>
+        <currency currencyType="RUB">1000000.0</currency>
+        <currency currencyType="BYN">300000.0</currency>
+        <employees>
+            <employee>
+                <firstName>Tom</firstName>
+                <lastName>Fox</lastName>
+                <birthday>1990-04-05T10:15:00</birthday>
+                <position>Trader</position>
+                <currency currencyType="USD">5000.0</currency>
+            </employee>
+            <employee>
+                <firstName>Alexa</firstName>
+                <lastName>Dilan</lastName>
+                <birthday>1998-09-18T18:27:00</birthday>
+                <position>Trader</position>
+                <currency currencyType="USD">5000.0</currency>
+            </employee>
+            <employee>
+                <firstName>Felix</firstName>
+                <lastName>Irvin</lastName>
+                <birthday>1993-02-12T14:43:00</birthday>
+                <position>Chief financial analyst</position>
+                <currency currencyType="USD">20000.0</currency>
+            </employee>
+            <employee>
+                <firstName>Max</firstName>
+                <lastName>Pax</lastName>
+                <birthday>1995-10-05T14:18:00</birthday>
+                <position>Financial analyst</position>
+                <currency currencyType="USD">13000.0</currency>
+            </employee>
+        </employees>
+    </bank>
+
+    <bank>
+        <name>Absolute</name>
+        <address>
+            <city>Moscow</city>
+            <street>Old Arbat</street>
+            <houseNumber>12</houseNumber>
+        </address>
+        <dateFounded>1886-01-01T00:00:00</dateFounded>
+        <currency currencyType="USD">700000.0</currency>
+        <currency currencyType="EUR">2000000.0</currency>
+        <currency currencyType="RUB">30000000.0</currency>
+        <currency currencyType="BYN">5000000.0</currency>
+        <employees>
+            <employee>
+                <firstName>Fill</firstName>
+                <lastName>Flinn</lastName>
+                <birthday>1991-12-01T12:44:00</birthday>
+                <position>Trader</position>
+                <currency currencyType="USD">5600.0</currency>
+            </employee>
+            <employee>
+                <firstName>Alisha</firstName>
+                <lastName>Willis</lastName>
+                <birthday>1989-02-23T16:11:00</birthday>
+                <position>Broker</position>
+                <currency currencyType="USD">31000.0</currency>
+            </employee>
+            <employee>
+                <firstName>Richard</firstName>
+                <lastName>Forester</lastName>
+                <birthday>1977-08-29T04:03:00</birthday>
+                <position>Chief financial analyst</position>
+                <currency currencyType="USD">38000.0</currency>
+            </employee>
+            <employee>
+                <firstName>Mick</firstName>
+                <lastName>Flick</lastName>
+                <birthday>2001-01-14T01:15:00</birthday>
+                <position>Trader</position>
+                <currency currencyType="USD">5600.0</currency>
+            </employee>
+        </employees>
+    </bank>
+
+</bankdata>
