@@ -18,6 +18,10 @@ public class Bank extends Organization implements Printable {
     private Currency byn;
     private List<Employee> employees;
 
+    public Bank() {
+
+    }
+
     public Bank(String name, Address address, LocalDateTime foundedAt) {
         super(name, address, foundedAt);
         count++;
@@ -73,7 +77,20 @@ public class Bank extends Organization implements Printable {
 
     @Override
     public void print() {
-
+        System.out.printf("%-60s%s%s", "\n", "BANK ININFORMATION:", "\n\n");
+        System.out.println(super.getName() + "bank , located on " + super.getAddress().getCity() +
+                " " + super.getAddress().getStreet() + " " + super.getAddress().getHouseNumber() + " street, founded in " +
+                super.getFoundedAt().getDayOfMonth() + "." + super.getFoundedAt().getMonth() + "." + super.getFoundedAt().getYear());
+        System.out.println("\nBank capital:");
+        System.out.println(getUsd().getAmount() + " " + Currency.CurrencyType.USD);
+        System.out.println(getEur().getAmount() + " " + Currency.CurrencyType.EURO);
+        System.out.println(getRub().getAmount() + " " + Currency.CurrencyType.RUB);
+        System.out.println(getByn().getAmount() + " " + Currency.CurrencyType.BYN);
+        System.out.println("\nEmployees:");
+        employees.forEach(employee -> {
+            System.out.println("---------------------------");
+            employee.print();
+        });
     }
 
 }

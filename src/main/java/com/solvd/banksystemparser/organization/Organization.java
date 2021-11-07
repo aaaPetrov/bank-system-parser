@@ -10,6 +10,10 @@ public abstract class Organization implements Printable {
     private Address address;
     private LocalDateTime foundedAt;
 
+    public Organization() {
+
+    }
+
     public Organization(String name, Address address, LocalDateTime foundedAt) {
         this.name = name;
         this.address = address;

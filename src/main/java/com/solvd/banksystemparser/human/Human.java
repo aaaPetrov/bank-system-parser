@@ -11,6 +11,10 @@ public class Human implements Printable {
     private int age;
     private LocalDateTime birthday;
 
+    public Human() {
+
+    }
+
     public Human(String firstName, String lastName, LocalDateTime birthday) {
         int age = (int) ChronoUnit.YEARS.between(birthday, LocalDateTime.now());
         this.firstName = firstName;

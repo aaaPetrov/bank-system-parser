@@ -9,8 +9,12 @@ import java.time.LocalDateTime;
 public class Employee extends Human implements Printable {
 
     public static int count = 0;
-    private final Currency salary;
-    private final String position;
+    private Currency salary;
+    private String position;
+
+    public Employee() {
+
+    }
 
     public Employee(String firstName, String lastName, LocalDateTime birthDay, String position, Currency salary) {
         super(firstName, lastName, birthDay);
@@ -19,17 +23,25 @@ public class Employee extends Human implements Printable {
         count++;
     }
 
-    public String getPosition() {
-        return position;
-    }
-
     public Currency getSalary() {
         return salary;
     }
 
+    public void setSalary(Currency salary) {
+        this.salary = salary;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
     @Override
     public void print() {
-        System.out.println("Employee: " + super.getLastName() + " " + super.getFirstName());
+        System.out.println("Employee: " + super.getFirstName() + " " + super.getLastName());
         System.out.println("Position: " + position);
         System.out.println("Salary: " + salary.getAmount() + " " + salary.getCurrencyType());
         System.out.println("Born: " + super.getBirthday().getDayOfMonth() + "." +

@@ -8,6 +8,10 @@ public class Address implements Printable {
     private String street;
     private int houseNumber;
 
+    public Address() {
+
+    }
+
     public Address(String city, String street, int houseNumber) {
         this.houseNumber = houseNumber;
         this.street = street;
