@@ -54,7 +54,7 @@
         <dateFounded>1886-01-01T00:00:00</dateFounded>
         <currency currencyType="USD">700000.0</currency>
         <currency currencyType="EUR">2000000.0</currency>
-        <currency currencyType="RUB">30000000.0</currency>
+        <currency currencyType="RUB">3000000.0</currency>
         <currency currencyType="BYN">5000000.0</currency>
         <employees>
             <employee>

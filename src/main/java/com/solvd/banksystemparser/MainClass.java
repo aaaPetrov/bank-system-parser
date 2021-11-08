@@ -20,8 +20,8 @@ import java.util.List;
 public class MainClass implements IParse {
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
-        MainClass mainClass = new MainClass();
-        List<Bank> banks = mainClass.parse("./src/main/resources/bankdata.xml");
+        IParse iParser = new MainClass();
+        List<Bank> banks = iParser.parse("./src/main/resources/bankdata.xml");
         banks.forEach(bank -> bank.print());
     }
 
