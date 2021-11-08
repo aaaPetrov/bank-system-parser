@@ -1,8 +1,6 @@
-package com.solvd.banksystemparser.currency;
+package com.solvd.banksystemparser.model;
 
-import com.solvd.banksystemparser.print.Printable;
-
-public class Currency implements Printable {
+public class Currency {
 
     private CurrencyType currencyType;
     private double amount;
@@ -42,11 +40,6 @@ public class Currency implements Printable {
 
     public CurrencyType getCurrencyType() {
         return currencyType;
-    }
-
-    @Override
-    public void print() {
-        System.out.println("Money amount: " + amount + " " + currencyType);
     }
 
 }

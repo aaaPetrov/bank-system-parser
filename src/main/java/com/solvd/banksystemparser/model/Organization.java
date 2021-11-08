@@ -1,10 +1,8 @@
-package com.solvd.banksystemparser.organization;
+package com.solvd.banksystemparser.model;
 
-import com.solvd.banksystemparser.organization.address.Address;
-import com.solvd.banksystemparser.print.Printable;
 import java.time.LocalDateTime;
 
-public abstract class Organization implements Printable {
+public abstract class Organization {
 
     private String name;
     private Address address;
@@ -42,15 +40,6 @@ public abstract class Organization implements Printable {
 
     public LocalDateTime getFoundedAt() {
         return foundedAt;
-    }
-
-    @Override
-    public void print() {
-        System.out.println("Organization name: " + name);
-        System.out.println("Located on " + address.getCity() +
-                ", " + address.getStreet() + " " + address.getHouseNumber() + " street.");
-        System.out.println("Founded at " +
-                foundedAt.getDayOfMonth() + "." + foundedAt.getMonth() + "." + foundedAt.getYear());
     }
 
 }

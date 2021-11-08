@@ -1,8 +1,6 @@
-package com.solvd.banksystemparser.organization.address;
+package com.solvd.banksystemparser.model;
 
-import com.solvd.banksystemparser.print.Printable;
-
-public class Address implements Printable {
+public class Address {
 
     private String city;
     private String street;
@@ -40,11 +38,6 @@ public class Address implements Printable {
 
     public void setHouseNumber(int houseNumber) {
         this.houseNumber = houseNumber;
-    }
-
-    @Override
-    public void print() {
-        System.out.println("Address: " + city + ", " + street + " " + houseNumber);
     }
 
 }

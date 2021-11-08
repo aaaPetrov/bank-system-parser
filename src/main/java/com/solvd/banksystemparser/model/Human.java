@@ -1,10 +1,9 @@
-package com.solvd.banksystemparser.human;
+package com.solvd.banksystemparser.model;
 
-import com.solvd.banksystemparser.print.Printable;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
-public class Human implements Printable {
+public class Human {
 
     private String firstName;
     private String lastName;
@@ -53,14 +52,6 @@ public class Human implements Printable {
 
     public LocalDateTime getBirthday() {
         return birthday;
-    }
-
-    @Override
-    public void print() {
-        System.out.println("First name: " + firstName);
-        System.out.println("Last name: " + lastName);
-        System.out.println("Born: " + birthday);
-        System.out.println("Age: " + age);
     }
 
 }

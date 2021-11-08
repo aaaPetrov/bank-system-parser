@@ -1,14 +1,13 @@
 package com.solvd.banksystemparser;
 
-import com.solvd.banksystemparser.organization.address.Address;
-import com.solvd.banksystemparser.currency.Currency;
-import com.solvd.banksystemparser.employee.Employee;
-import com.solvd.banksystemparser.organization.Organization;
-import com.solvd.banksystemparser.print.Printable;
+import com.solvd.banksystemparser.model.Address;
+import com.solvd.banksystemparser.model.Currency;
+import com.solvd.banksystemparser.model.Employee;
+import com.solvd.banksystemparser.model.Organization;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Bank extends Organization implements Printable {
+public class Bank extends Organization{
 
     public static int count = 0;
 
@@ -76,21 +75,21 @@ public class Bank extends Organization implements Printable {
     }
 
     @Override
-    public void print() {
-        System.out.printf("%-60s%s%s", "\n", "BANK ININFORMATION:", "\n\n");
-        System.out.println(super.getName() + "bank , located on " + super.getAddress().getCity() +
-                " " + super.getAddress().getStreet() + " " + super.getAddress().getHouseNumber() + " street, founded in " +
-                super.getFoundedAt().getDayOfMonth() + "." + super.getFoundedAt().getMonth() + "." + super.getFoundedAt().getYear());
-        System.out.println("\nBank capital:");
-        System.out.println(getUsd().getAmount() + " " + Currency.CurrencyType.USD);
-        System.out.println(getEur().getAmount() + " " + Currency.CurrencyType.EURO);
-        System.out.println(getRub().getAmount() + " " + Currency.CurrencyType.RUB);
-        System.out.println(getByn().getAmount() + " " + Currency.CurrencyType.BYN);
-        System.out.println("\nEmployees:");
-        employees.forEach(employee -> {
-            System.out.println("---------------------------");
-            employee.print();
-        });
+    public String toString() {
+        String str = super.getName() + "bank , located on " + super.getAddress().getCity()
+                + " " + super.getAddress().getStreet() + " " + super.getAddress().getHouseNumber() + " street, founded in "
+                + super.getFoundedAt().getDayOfMonth() + "." + super.getFoundedAt().getMonth() + "." + super.getFoundedAt().getYear() + "\n"
+                + "\nBank capital:"
+                + "\n" + getUsd().getAmount() + " " + Currency.CurrencyType.USD
+                + "\n" + getEur().getAmount() + " " + Currency.CurrencyType.EURO
+                + "\n" + getRub().getAmount() + " " + Currency.CurrencyType.RUB
+                + "\n" + getByn().getAmount() + " " + Currency.CurrencyType.BYN + "\n"
+                + "\nEmployees:";
+        for(Employee employee : employees) {
+            str += "\n---------------------------";
+            str += employee;
+        }
+        return str;
     }
 
 }
