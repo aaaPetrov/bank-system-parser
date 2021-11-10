@@ -1,6 +1,7 @@
 package com.solvd.banksystemparser;
 
 import com.solvd.banksystemparser.model.Address;
+import com.solvd.banksystemparser.model.Bank;
 import com.solvd.banksystemparser.model.Currency;
 import com.solvd.banksystemparser.model.Employee;
 import org.w3c.dom.Document;

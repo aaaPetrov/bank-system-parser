@@ -1,9 +1,5 @@
-package com.solvd.banksystemparser;
+package com.solvd.banksystemparser.model;
 
-import com.solvd.banksystemparser.model.Address;
-import com.solvd.banksystemparser.model.Currency;
-import com.solvd.banksystemparser.model.Employee;
-import com.solvd.banksystemparser.model.Organization;
 import java.time.LocalDateTime;
 import java.util.List;
 

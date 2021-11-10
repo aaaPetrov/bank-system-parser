@@ -1,5 +1,6 @@
 package com.solvd.banksystemparser;
 
+import com.solvd.banksystemparser.model.Bank;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
