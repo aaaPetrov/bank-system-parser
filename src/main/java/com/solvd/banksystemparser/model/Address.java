@@ -1,9 +1,17 @@
 package com.solvd.banksystemparser.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Address {
 
+    @XmlElement(name = "city")
     private String city;
+    @XmlElement(name = "street")
     private String street;
+    @XmlElement(name = "houseNumber")
     private int houseNumber;
 
     public Address() {
@@ -38,6 +46,20 @@ public class Address {
 
     public void setHouseNumber(int houseNumber) {
         this.houseNumber = houseNumber;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == this) {
+            return true;
+        }
+        if (object == null || object.getClass() != this.getClass()) {
+            return false;
+        }
+        Address address = (Address) object;
+        return houseNumber == address.getHouseNumber() &&
+                (city != null && city.equals(address.getCity()))
+                && (street != null && street.equals(address.getStreet()));
     }
 
 }

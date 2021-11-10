@@ -1,11 +1,20 @@
 package com.solvd.banksystemparser.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDateTime;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public abstract class Organization {
 
+    @XmlElement(name = "name")
     private String name;
+    @XmlElement(name = "address")
     private Address address;
+    @XmlElement(name = "dateFounded")
+    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     private LocalDateTime foundedAt;
 
     public Organization() {

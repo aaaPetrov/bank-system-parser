@@ -4,33 +4,42 @@
     <xs:element name="bankdata">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="bank" maxOccurs="unbounded">
+                <xs:element name="banks">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="name" type="xs:string"/>
-                            <xs:element name="address">
+                            <xs:element name="bank" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="city" type="xs:string"/>
-                                        <xs:element name="street" type="xs:string"/>
-                                        <xs:element name="houseNumber" type="xs:positiveInteger"/>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="dateFounded" type="xs:dateTime"/>
-                            <xs:element name="currency" type="currency" minOccurs="4" maxOccurs="4">
-                            </xs:element>
-                            <xs:element name="employees">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="employee" maxOccurs="unbounded">
+                                        <xs:element name="name" type="xs:string"/>
+                                        <xs:element name="address">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name="firstName" type="xs:string"/>
-                                                    <xs:element name="lastName" type="xs:string"/>
-                                                    <xs:element name="birthday" type="xs:dateTime"/>
-                                                    <xs:element name="position" type="xs:string"/>
-                                                    <xs:element name="currency" type="currency"/>
+                                                    <xs:element name="city" type="xs:string"/>
+                                                    <xs:element name="street" type="xs:string"/>
+                                                    <xs:element name="houseNumber" type="xs:positiveInteger"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="dateFounded" type="xs:dateTime"/>
+                                        <xs:element name="currency1" type="currency"/>
+                                        <xs:element name="currency2" type="currency"/>
+                                        <xs:element name="currency3" type="currency"/>
+                                        <xs:element name="currency4" type="currency"/>
+
+                                        <xs:element name="employees">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="employee" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="firstName" type="xs:string"/>
+                                                                <xs:element name="lastName" type="xs:string"/>
+                                                                <xs:element name="birthday" type="xs:dateTime"/>
+                                                                <xs:element name="position" type="xs:string"/>
+                                                                <xs:element name="currency" type="currency"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>

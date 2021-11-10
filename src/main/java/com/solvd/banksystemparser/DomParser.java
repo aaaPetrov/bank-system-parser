@@ -1,8 +1,6 @@
 package com.solvd.banksystemparser;
 
-import com.solvd.banksystemparser.model.Address;
-import com.solvd.banksystemparser.model.Currency;
-import com.solvd.banksystemparser.model.Employee;
+import com.solvd.banksystemparser.model.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -20,16 +18,18 @@ import java.util.List;
 public class DomParser implements IParse {
 
     @Override
-    public List<Bank> parse(String pathname) throws ParserConfigurationException, IOException, SAXException {
+    public BankData parse(String pathname) throws ParserConfigurationException, IOException, SAXException {
         List<Bank> banks = new ArrayList<>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = null;
-            builder = factory.newDocumentBuilder();
-            Document document = null;
-            document = builder.parse(new File(pathname));
-            NodeList banksChild = document.getDocumentElement().getElementsByTagName("bank");
-            setBanks(banksChild, banks);
-        return banks;
+        DocumentBuilder builder;
+        builder = factory.newDocumentBuilder();
+        Document document;
+        document = builder.parse(new File(pathname));
+        NodeList banksChild = document.getDocumentElement().getElementsByTagName("bank");
+        setBanks(banksChild, banks);
+        BankData bankData = new BankData();
+        bankData.setBanks(banks);
+        return bankData;
     }
 
     public static void setBanks(NodeList banksChild, List<Bank> banks) {
@@ -45,6 +45,8 @@ public class DomParser implements IParse {
     public static void setBank(NodeList bankChild, Bank bank) {
         for (int j = 0; j < bankChild.getLength(); j++) {
             String bankNodeName = bankChild.item(j).getNodeName();
+            String currencyType;
+            double currencyAmount;
             switch (bankNodeName) {
                 case "name":
                     String bankName = bankChild.item(j).getTextContent();
@@ -60,23 +62,13 @@ public class DomParser implements IParse {
                     LocalDateTime dateFounded = LocalDateTime.parse(bankChild.item(j).getTextContent());
                     bank.setFoundedAt(dateFounded);
                     break;
-                case "currency":
-                    String currencyType = bankChild.item(j).getAttributes().getNamedItem("currencyType").getNodeValue();
-                    double currencyAmount = Double.parseDouble(bankChild.item(j).getTextContent());
-                    switch (currencyType) {
-                        case "USD":
-                            bank.setUsd(new Currency(currencyAmount, Currency.CurrencyType.USD));
-                            break;
-                        case "EUR":
-                            bank.setEur(new Currency(currencyAmount, Currency.CurrencyType.EURO));
-                            break;
-                        case "RUB":
-                            bank.setRub(new Currency(currencyAmount, Currency.CurrencyType.RUB));
-                            break;
-                        case "BYN":
-                            bank.setByn(new Currency(currencyAmount, Currency.CurrencyType.BYN));
-                            break;
-                    }
+                case "currency1":
+                case "currency2":
+                case "currency3":
+                case "currency4":
+                    currencyType = bankChild.item(j).getAttributes().getNamedItem("currencyType").getNodeValue();
+                    currencyAmount = Double.parseDouble(bankChild.item(j).getTextContent());
+                    setCurrency(bank, currencyAmount, currencyType);
                     break;
                 case "employees":
                     NodeList employeesChild = bankChild.item(j).getChildNodes();
@@ -84,6 +76,23 @@ public class DomParser implements IParse {
                     setEmployees(employeesChild, employees);
                     bank.setEmployees(employees);
             }
+        }
+    }
+
+    public static void setCurrency(Bank bank, double currencyAmount, String currencyType) {
+        switch (currencyType) {
+            case "USD":
+                bank.setUsd(new Currency(currencyAmount, Currency.CurrencyType.USD));
+                break;
+            case "EUR":
+                bank.setEur(new Currency(currencyAmount, Currency.CurrencyType.EUR));
+                break;
+            case "RUB":
+                bank.setRub(new Currency(currencyAmount, Currency.CurrencyType.RUB));
+                break;
+            case "BYN":
+                bank.setByn(new Currency(currencyAmount, Currency.CurrencyType.BYN));
+                break;
         }
     }
 
@@ -149,7 +158,7 @@ public class DomParser implements IParse {
                             employee.setSalary(new Currency(positionCurrencyAmount, Currency.CurrencyType.USD));
                             break;
                         case "EUR":
-                            employee.setSalary(new Currency(positionCurrencyAmount, Currency.CurrencyType.EURO));
+                            employee.setSalary(new Currency(positionCurrencyAmount, Currency.CurrencyType.EUR));
                             break;
                         case "RUB":
                             employee.setSalary(new Currency(positionCurrencyAmount, Currency.CurrencyType.RUB));

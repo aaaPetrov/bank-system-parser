@@ -1,24 +1,28 @@
-package com.solvd.banksystemparser;
+package com.solvd.banksystemparser.model;
 
-import com.solvd.banksystemparser.model.Address;
-import com.solvd.banksystemparser.model.Currency;
-import com.solvd.banksystemparser.model.Employee;
-import com.solvd.banksystemparser.model.Organization;
+import javax.xml.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Bank extends Organization{
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Bank extends Organization {
 
     public static int count = 0;
 
+    @XmlElement(name = "currency1")
     private Currency usd;
+    @XmlElement(name = "currency2")
     private Currency eur;
+    @XmlElement(name = "currency3")
     private Currency rub;
+    @XmlElement(name = "currency4")
     private Currency byn;
+    @XmlElementWrapper(name = "employees")
+    @XmlElement(name = "employee")
     private List<Employee> employees;
 
     public Bank() {
-
+        count++;
     }
 
     public Bank(String name, Address address, LocalDateTime foundedAt) {
@@ -81,15 +85,41 @@ public class Bank extends Organization{
                 + super.getFoundedAt().getDayOfMonth() + "." + super.getFoundedAt().getMonth() + "." + super.getFoundedAt().getYear() + "\n"
                 + "\nBank capital:"
                 + "\n" + getUsd().getAmount() + " " + Currency.CurrencyType.USD
-                + "\n" + getEur().getAmount() + " " + Currency.CurrencyType.EURO
+                + "\n" + getEur().getAmount() + " " + Currency.CurrencyType.EUR
                 + "\n" + getRub().getAmount() + " " + Currency.CurrencyType.RUB
                 + "\n" + getByn().getAmount() + " " + Currency.CurrencyType.BYN + "\n"
                 + "\nEmployees:";
-        for(Employee employee : employees) {
+        for (Employee employee : employees) {
             str += "\n---------------------------";
             str += employee;
         }
         return str;
     }
 
+    @Override
+    public boolean equals(Object object) {
+        if (object == this) {
+            return true;
+        }
+        if (object == null || object.getClass() != this.getClass()) {
+            return false;
+        }
+        Bank bank = (Bank) object;
+        boolean result = usd.equals(bank.getUsd()) && eur.equals(bank.getEur()) && rub.equals(bank.getRub())
+                && byn.equals(bank.getByn()) && (getName() != null && getName().equals(bank.getName()))
+                && getAddress().equals(bank.getAddress()) && getFoundedAt().equals(bank.getFoundedAt());
+        int counter = 0;
+        boolean result1 = false;
+        for (int i = 0; i < this.getEmployees().size(); i++) {
+            if (bank.getEmployees().get(i).equals(this.getEmployees().get(i))) {
+                counter++;
+                if (counter == this.getEmployees().size()) {
+                    result1 = true;
+                }
+            } else {
+                result1 = false;
+            }
+        }
+        return result && result1;
+    }
 }
