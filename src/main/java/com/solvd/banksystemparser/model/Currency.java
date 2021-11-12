@@ -1,18 +1,26 @@
 package com.solvd.banksystemparser.model;
 
+import javax.xml.bind.annotation.*;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Currency {
 
+    @XmlAttribute(name = "currencyType")
     private CurrencyType currencyType;
+    @XmlValue
     private double amount;
 
-    public Currency(double moneyAmount, CurrencyType currencyType) {
-            this.amount = moneyAmount;
-            this.currencyType = currencyType;
+    public Currency() {
     }
 
-    public enum  CurrencyType {
+    public Currency(double moneyAmount, CurrencyType currencyType) {
+        this.amount = moneyAmount;
+        this.currencyType = currencyType;
+    }
 
-        USD("USD"), EURO("EUR"), RUB("RUB"), BYN("BYN");
+    public enum CurrencyType {
+
+        USD("USD"), EUR("EUR"), RUB("RUB"), BYN("BYN");
 
         private final String type;
 
@@ -35,11 +43,23 @@ public class Currency {
     }
 
     public void setCurrencyType(CurrencyType currencyType) {
-            this.currencyType = currencyType;
+        this.currencyType = currencyType;
     }
 
     public CurrencyType getCurrencyType() {
         return currencyType;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == this) {
+            return true;
+        }
+        if (object == null || object.getClass() != this.getClass()) {
+            return false;
+        }
+        Currency currency = (Currency) object;
+        return amount == currency.getAmount() && (currencyType != null && currencyType.equals(currency.getCurrencyType()));
     }
 
 }
