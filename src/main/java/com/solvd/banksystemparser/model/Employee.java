@@ -1,5 +1,7 @@
 package com.solvd.banksystemparser.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -11,6 +13,7 @@ public class Employee extends Human {
     public static int count = 0;
 
     @XmlElement(name = "currency")
+    @JsonProperty("currency")
     private Currency salary;
     @XmlElement(name = "position")
     private String position;

@@ -7,6 +7,7 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
+
 public class MainClass {
 
     private static final Logger LOGGER = LogManager.getLogger(MainClass.class.getName());
@@ -38,8 +39,23 @@ public class MainClass {
             e.printStackTrace();
         }
 
+        System.out.println("\n\n/////////////////////////////////JACKSON PARSER////////////////////////////\n\n");
+        iParser = new JacksonParser();
+        BankData bankData3 = null;
+        try {
+            bankData3 = iParser.parse("./src/main/resources/bankdata.json");
+            bankData3.getBanks().forEach(bank -> {
+                System.out.printf("%-60s%s%s", "\n", "BANK INNFORMATION:", "\n\n");
+                System.out.println(bank);
+            });
+        } catch (ParserConfigurationException | IOException | SAXException e) {
+            e.printStackTrace();
+        }
+
         if (bankData1 != null && bankData1.equals(bankData2)) {
-            System.out.println("\n\nTHE SAME OBJECTS.");
+            if(bankData2.equals(bankData3)) {
+                System.out.println("\n\nTHE SAME OBJECTS.");
+            }
         }
     }
 

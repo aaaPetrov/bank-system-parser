@@ -1,5 +1,8 @@
 package com.solvd.banksystemparser.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -15,6 +18,8 @@ public abstract class Organization {
     private Address address;
     @XmlElement(name = "dateFounded")
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonProperty("dateFounded")
     private LocalDateTime foundedAt;
 
     public Organization() {

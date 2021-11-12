@@ -1,5 +1,8 @@
 package com.solvd.banksystemparser.model;
 
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -55,6 +58,8 @@ public class Human {
 
     @XmlElement(name = "birthday")
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
+    @JsonSetter("birthday")
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     public void setBirthday(LocalDateTime birthday) {
         this.birthday = birthday;
         this.age = (int) ChronoUnit.YEARS.between(this.birthday, LocalDateTime.now());
