@@ -11,8 +11,7 @@ public class JacksonParser implements IParse {
     public BankData parse(String pathname) {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            BankData bankData = mapper.readValue(new File(pathname), BankData.class);
-            return bankData;
+            return mapper.readValue(new File(pathname), BankData.class);
         } catch (IOException e) {
             e.printStackTrace();
         }

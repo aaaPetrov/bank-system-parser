@@ -1,7 +1,5 @@
 package com.solvd.banksystemparser.model;
 
-import com.fasterxml.jackson.annotation.JsonValue;
-
 import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)

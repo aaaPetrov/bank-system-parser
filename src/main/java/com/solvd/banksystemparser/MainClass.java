@@ -19,7 +19,7 @@ public class MainClass {
         try {
             bankData1 = iParser.parse("./src/main/resources/bankdata.xml");
             bankData1.getBanks().forEach(bank -> {
-                System.out.printf("%-60s%s%s", "\n", "BANK INNFORMATION:", "\n\n");
+                System.out.printf("%-60s%s%s", "\n", "BANK INFORMATION:", "\n\n");
                 System.out.println(bank);
             });
         } catch (ParserConfigurationException | IOException | SAXException e) {
@@ -32,7 +32,7 @@ public class MainClass {
         try {
             bankData2 = iParser.parse("./src/main/resources/bankdata.xml");
             bankData2.getBanks().forEach(bank -> {
-                System.out.printf("%-60s%s%s", "\n", "BANK INNFORMATION:", "\n\n");
+                System.out.printf("%-60s%s%s", "\n", "BANK INFORMATION:", "\n\n");
                 System.out.println(bank);
             });
         } catch (ParserConfigurationException | IOException | SAXException e) {
@@ -45,7 +45,7 @@ public class MainClass {
         try {
             bankData3 = iParser.parse("./src/main/resources/bankdata.json");
             bankData3.getBanks().forEach(bank -> {
-                System.out.printf("%-60s%s%s", "\n", "BANK INNFORMATION:", "\n\n");
+                System.out.printf("%-60s%s%s", "\n", "BANK INFORMATION:", "\n\n");
                 System.out.println(bank);
             });
         } catch (ParserConfigurationException | IOException | SAXException e) {

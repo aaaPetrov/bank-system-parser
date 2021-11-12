@@ -11,18 +11,17 @@ public class JaxbParser implements IParse {
 
     @Override
     public BankData parse(String pathname) {
-        JAXBContext jc = null;
-        Unmarshaller unmarshaller = null;
-        BankData bankData = null;
+        JAXBContext jc;
+        Unmarshaller unmarshaller;
         try {
             jc = JAXBContext.newInstance(BankData.class, Bank.class, Organization.class,
                     Currency.class, Employee.class, Human.class, Address.class);
             unmarshaller = jc.createUnmarshaller();
-            bankData = (BankData) unmarshaller.unmarshal(new File(pathname));
+            return  (BankData) unmarshaller.unmarshal(new File(pathname));
         } catch (JAXBException e) {
             e.printStackTrace();
         }
-        return bankData;
+        return null;
     }
 
 }
