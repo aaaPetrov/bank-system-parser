@@ -22,7 +22,7 @@ public class Currency {
 
         USD("USD"), EUR("EUR"), RUB("RUB"), BYN("BYN");
 
-        private final String type;
+        private String type;
 
         CurrencyType(String type) {
             this.type = type;

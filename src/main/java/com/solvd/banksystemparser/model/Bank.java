@@ -1,5 +1,7 @@
 package com.solvd.banksystemparser.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -10,12 +12,16 @@ public class Bank extends Organization {
     public static int count = 0;
 
     @XmlElement(name = "currency1")
+    @JsonProperty("currency1")
     private Currency usd;
     @XmlElement(name = "currency2")
+    @JsonProperty("currency2")
     private Currency eur;
     @XmlElement(name = "currency3")
+    @JsonProperty("currency3")
     private Currency rub;
     @XmlElement(name = "currency4")
+    @JsonProperty("currency4")
     private Currency byn;
     @XmlElementWrapper(name = "employees")
     @XmlElement(name = "employee")
@@ -80,7 +86,7 @@ public class Bank extends Organization {
 
     @Override
     public String toString() {
-        String str = super.getName() + "bank , located on " + super.getAddress().getCity()
+        String str = super.getName() + " bank , located on " + super.getAddress().getCity()
                 + " " + super.getAddress().getStreet() + " " + super.getAddress().getHouseNumber() + " street, founded in "
                 + super.getFoundedAt().getDayOfMonth() + "." + super.getFoundedAt().getMonth() + "." + super.getFoundedAt().getYear() + "\n"
                 + "\nBank capital:"
