@@ -53,7 +53,7 @@ public class MainClass {
         }
 
         if (bankData1 != null && bankData1.equals(bankData2)) {
-            if(bankData2.equals(bankData3)) {
+            if (bankData2.equals(bankData3)) {
                 System.out.println("\n\nTHE SAME OBJECTS.");
             }
         }

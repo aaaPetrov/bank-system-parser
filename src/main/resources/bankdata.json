@@ -2,35 +2,28 @@
   "banks" : [
     {
       "name" : "Future's",
-
       "address" : {
         "city" : "London",
         "street" : "Piccadilly",
         "houseNumber" : 7
       },
-
       "dateFounded" : "2000-10-06T23:55:00",
-
       "currency1" : {
         "amount" : 50000.0,
         "currencyType" : "USD"
       },
-
       "currency2" : {
         "amount" : 100000.0,
         "currencyType" : "EUR"
       },
-
       "currency3" : {
         "amount" : 1000000.0,
         "currencyType" : "RUB"
       },
-
       "currency4" : {
         "amount" : 300000.0,
         "currencyType" : "BYN"
       },
-
       "employees" : [
         {
           "firstName": "Tom",
@@ -82,29 +75,23 @@
         "street" : "Old Arbat",
         "houseNumber" : 12
       },
-
       "dateFounded" : "1886-01-01T00:00:00",
-
       "currency1" : {
         "amount" : 700000.0,
         "currencyType" : "USD"
       },
-
       "currency2" : {
         "amount" : 2000000.0,
         "currencyType" : "EUR"
       },
-
       "currency3" : {
         "amount" : 3000000.0,
         "currencyType" : "RUB"
       },
-
       "currency4" : {
         "amount" : 5000000.0,
         "currencyType" : "BYN"
       },
-
       "employees" : [
         {
           "firstName": "Fill",

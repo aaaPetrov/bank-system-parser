@@ -18,8 +18,8 @@ public abstract class Organization {
     private Address address;
     @XmlElement(name = "dateFounded")
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonProperty("dateFounded")
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime foundedAt;
 
     public Organization() {
